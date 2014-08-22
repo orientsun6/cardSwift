@@ -61,7 +61,7 @@ class CardTableViewCell: UITableViewCell {
     }
 
     func jumpTo(URLString:String?) {
-        if let URL = NSURL.URLWithString(URLString) {
+        if let URL = NSURL.URLWithString(URLString!) {
             UIApplication.sharedApplication().openURL(URL)
         }
     }

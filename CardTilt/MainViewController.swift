@@ -16,7 +16,7 @@ class MainViewController: UITableViewController {
     
     func loadModel() {
         let path = NSBundle.mainBundle().pathForResource("TeamMembers", ofType: "json")
-        members = Member.loadMembersFromFile(path)
+        members = Member.loadMembersFromFile(path!)
     }
     
     // #pragma mark - View Lifetime
@@ -53,4 +53,9 @@ class MainViewController: UITableViewController {
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return false
     }
+    
+    override func tableView(tableView: UITableView!, willDisplayCell cell: UITableViewCell!, forRowAtIndexPath indexPath: NSIndexPath!) {
+        TipInCellAnimator.animate(cell)
+    }
+    
 }
